@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Open Borderless Window</title>
+  <title>Open Bottom Window</title>
 </head>
 <body>
   <button onclick="openWindow()">Open Window</button>
 
   <script>
     function openWindow() {
+      const width = screen.width;   // full screen width
+      const height = 200;           // window height
+      const left = 0;               // start at left edge
+      const top = screen.height - height;  // stick to bottom of screen
+
       window.open(
-        'https://www.indopremier.com/#ipot/app/order-book', // URL or your HTML file
+        'https://www.indopremier.com/#ipot/app/order-book', // your target URL
         '_blank',
-        'width=1920,height=300,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no'
+        `width=${width},height=${height},left=${left},top=${top},
+        toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no`
       );
     }
   </script>
