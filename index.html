@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Open Bottom Window and Scroll Once</title>
+  <title>Open Bottom Window with Delayed Scroll</title>
 </head>
 <body>
-  <button onclick="openWindow()">Open Bottom Window and Scroll Once</button>
+  <button onclick="openWindow()">Open Bottom Window with Delayed Scroll</button>
 
   <script>
     function openWindow() {
       const width = screen.width;
-      const height = 175;
+      const height = 200;
       const left = 0;
       const top = screen.height - height;
 
@@ -20,10 +20,12 @@
         toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no`
       );
 
-      // Scroll otomatis sekali sejauh 50px
       if (win) {
         win.onload = function() {
-          win.scrollBy(0, 50);
+          // scroll dilakukan setelah delay 10 detik (10.000 ms)
+          setTimeout(() => {
+            win.scrollBy(0, 125);
+          }, 10000);
         };
       }
     }
