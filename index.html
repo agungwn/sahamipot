@@ -1,16 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Open Borderless Window</title>
+</head>
 <body>
-<iframe
-      id="ShowcaseCSC"
-      style="
-        width: 750;
-        height: 100;
-        top: 0;
-        left: 0;
-        border: 0;
-        position: fixed;
-      "
-      frameborder="0"
-      scrolling="no"
-      src="https://www.indopremier.com/#ipot/app/dashboard"
-    ></iframe>
+  <button onclick="openWindow()">Open Window</button>
+
+  <script>
+    function openWindow() {
+      window.open(
+        'https://www.indopremier.com/#ipot/app/order-book', // URL or your HTML file
+        '_blank',
+        'width=1920,height=300,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no'
+      );
+    }
+  </script>
 </body>
+</html>
