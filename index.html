@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Open Bottom Window</title>
+  <title>Open Bottom Window and Scroll Once</title>
 </head>
 <body>
-  <button onclick="openWindow()">Open Window</button>
+  <button onclick="openWindow()">Open Bottom Window and Scroll Once</button>
 
   <script>
     function openWindow() {
-      const width = screen.width;   // full screen width
-      const height = 200;           // window height
-      const left = 0;               // start at left edge
-      const top = screen.height - height;  // stick to bottom of screen
+      const width = screen.width;
+      const height = 175;
+      const left = 0;
+      const top = screen.height - height;
 
-      window.open(
-        'https://www.indopremier.com/#ipot/app/order-book', // your target URL
+      const win = window.open(
+        'https://www.indopremier.com/#ipot/app/order-book',
         '_blank',
         `width=${width},height=${height},left=${left},top=${top},
-        toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no`
+        toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no`
       );
+
+      // Scroll otomatis sekali sejauh 50px
+      if (win) {
+        win.onload = function() {
+          win.scrollBy(0, 50);
+        };
+      }
     }
   </script>
 </body>
