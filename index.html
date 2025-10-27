@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Open Bottom Window with Delayed Scroll</title>
+  <title>Buka Window Independen di Bawah</title>
 </head>
 <body>
-  <button onclick="openWindow()">Open Bottom Window with Delayed Scroll</button>
+  <a href="#" onclick="openIndependentWindow(); return false;">Buka Tab Baru</a>
 
   <script>
-    function openWindow() {
+    function openIndependentWindow() {
       const width = screen.width;
       const height = 175;
       const left = 0;
@@ -19,6 +19,9 @@
         `width=${width},height=${height},left=${left},top=${top},
         toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no`
       );
+
+      // 🔒 Putuskan hubungan agar window tidak tertutup saat tab utama ditutup
+      if (win) win.opener = null;
     }
   </script>
 </body>
